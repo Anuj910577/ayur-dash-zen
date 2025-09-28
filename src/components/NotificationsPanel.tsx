@@ -52,12 +52,16 @@ const getPriorityColor = (priority: string) => {
   }
 };
 
-export function NotificationsPanel() {
+interface NotificationsPanelProps {
+  onViewAll?: () => void;
+}
+
+export function NotificationsPanel({ onViewAll }: NotificationsPanelProps) {
   return (
     <div className="card-wellness">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Pending Notifications</h2>
-        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" onClick={onViewAll}>
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>

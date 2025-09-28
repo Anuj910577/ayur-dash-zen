@@ -46,7 +46,19 @@ const patients = [
   },
 ];
 
-export function PatientManagement() {
+interface PatientManagementProps {
+  onAddPatient?: () => void;
+  onViewProfile?: (patient: any) => void;
+  onScheduleSession?: () => void;
+  onShowFilters?: () => void;
+}
+
+export function PatientManagement({
+  onAddPatient,
+  onViewProfile,
+  onScheduleSession,
+  onShowFilters
+}: PatientManagementProps) {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -55,7 +67,7 @@ export function PatientManagement() {
           <h1 className="text-2xl font-bold text-foreground">Patient Management</h1>
           <p className="text-muted-foreground">Manage and track patient therapies and progress</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={onAddPatient}>
           <Plus className="h-4 w-4 mr-2" />
           Add Patient
         </Button>
@@ -70,7 +82,7 @@ export function PatientManagement() {
             className="pl-10"
           />
         </div>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2" onClick={onShowFilters}>
           <Filter className="h-4 w-4" />
           Filter
         </Button>
@@ -131,11 +143,11 @@ export function PatientManagement() {
 
             {/* Action Buttons */}
             <div className="flex gap-2 mt-4 pt-4 border-t border-border">
-              <Button size="sm" variant="outline" className="flex-1">
+              <Button size="sm" variant="outline" className="flex-1" onClick={() => onViewProfile?.(patient)}>
                 View Profile
               </Button>
               {patient.status === 'active' && (
-                <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90" onClick={onScheduleSession}>
                   Start Session
                 </Button>
               )}

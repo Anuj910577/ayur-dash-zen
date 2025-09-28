@@ -7,16 +7,84 @@ import { RecentSessions } from "@/components/RecentSessions";
 import { NotificationsPanel } from "@/components/NotificationsPanel";
 import { PatientManagement } from "@/components/PatientManagement";
 import { ScheduleView } from "@/components/ScheduleView";
+import { AddPatientModal } from "@/components/modals/AddPatientModal";
+import { ScheduleSessionModal } from "@/components/modals/ScheduleSessionModal";
+import { PatientProfileModal } from "@/components/modals/PatientProfileModal";
+import { SessionDetailsModal } from "@/components/modals/SessionDetailsModal";
+import { AllSessionsView } from "@/components/views/AllSessionsView";
+import { AllNotificationsView } from "@/components/views/AllNotificationsView";
+import { FilterPanel } from "@/components/FilterPanel";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
+  
+  // Modal states
+  const [showAddPatient, setShowAddPatient] = useState(false);
+  const [showScheduleSession, setShowScheduleSession] = useState(false);
+  const [showPatientProfile, setShowPatientProfile] = useState(false);
+  const [showSessionDetails, setShowSessionDetails] = useState(false);
+  const [showAllSessions, setShowAllSessions] = useState(false);
+  const [showAllNotifications, setShowAllNotifications] = useState(false);
+  const [showFilterPanel, setShowFilterPanel] = useState(false);
+  
+  // Selected items for modals
+  const [selectedPatient, setSelectedPatient] = useState<any>(null);
+  const [selectedSession, setSelectedSession] = useState<any>(null);
+  
+  // Data states
+  const [patients, setPatients] = useState<any[]>([]);
+  const [sessions, setSessions] = useState<any[]>([]);
+
+  // Handlers
+  const handlePatientAdded = (newPatient: any) => {
+    setPatients(prev => [...prev, newPatient]);
+  };
+
+  const handleSessionScheduled = (newSession: any) => {
+    setSessions(prev => [...prev, newSession]);
+  };
+
+  const handleViewPatientProfile = (patient: any) => {
+    setSelectedPatient(patient);
+    setShowPatientProfile(true);
+  };
+
+  const handleViewSessionDetails = (session: any) => {
+    setSelectedSession(session);
+    setShowSessionDetails(true);
+  };
+
+  const handleSessionUpdate = (updatedSession: any) => {
+    setSessions(prev => 
+      prev.map(session => 
+        session.id === updatedSession.id ? updatedSession : session
+      )
+    );
+  };
+
+  const handleFiltersApply = (filters: any) => {
+    // Filter logic would be implemented here
+    console.log("Filters applied:", filters);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
       case "patients":
-        return <PatientManagement />;
+        return (
+          <PatientManagement 
+            onAddPatient={() => setShowAddPatient(true)}
+            onViewProfile={handleViewPatientProfile}
+            onScheduleSession={() => setShowScheduleSession(true)}
+            onShowFilters={() => setShowFilterPanel(true)}
+          />
+        );
       case "schedule":
-        return <ScheduleView />;
+        return (
+          <ScheduleView 
+            onScheduleSession={() => setShowScheduleSession(true)}
+            onViewSession={handleViewSessionDetails}
+          />
+        );
       case "notifications":
         return (
           <div className="space-y-6">
@@ -26,7 +94,9 @@ const Index = () => {
                 <p className="text-muted-foreground">Stay updated with patient activities and reminders</p>
               </div>
             </div>
-            <NotificationsPanel />
+            <NotificationsPanel 
+              onViewAll={() => setShowAllNotifications(true)}
+            />
           </div>
         );
       case "progress":
@@ -53,7 +123,10 @@ const Index = () => {
                 <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
                 <p className="text-muted-foreground mt-1">Welcome to your Panchakarma management center</p>
               </div>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
+              <Button 
+                onClick={() => setShowScheduleSession(true)}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              >
                 <Plus className="h-4 w-4 mr-2" />
                 Schedule Session
               </Button>
@@ -65,10 +138,15 @@ const Index = () => {
             {/* Main Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
-                <RecentSessions />
+                <RecentSessions 
+                  onViewAll={() => setShowAllSessions(true)}
+                  onViewSession={handleViewSessionDetails}
+                />
               </div>
               <div>
-                <NotificationsPanel />
+                <NotificationsPanel 
+                  onViewAll={() => setShowAllNotifications(true)}
+                />
               </div>
             </div>
           </div>
@@ -82,6 +160,50 @@ const Index = () => {
       <main className="flex-1 p-8">
         {renderContent()}
       </main>
+
+      {/* Modals */}
+      <AddPatientModal
+        open={showAddPatient}
+        onOpenChange={setShowAddPatient}
+        onPatientAdded={handlePatientAdded}
+      />
+      
+      <ScheduleSessionModal
+        open={showScheduleSession}
+        onOpenChange={setShowScheduleSession}
+        onSessionScheduled={handleSessionScheduled}
+        patients={patients}
+      />
+      
+      <PatientProfileModal
+        open={showPatientProfile}
+        onOpenChange={setShowPatientProfile}
+        patient={selectedPatient}
+      />
+      
+      <SessionDetailsModal
+        open={showSessionDetails}
+        onOpenChange={setShowSessionDetails}
+        session={selectedSession}
+        onSessionUpdate={handleSessionUpdate}
+      />
+      
+      <AllSessionsView
+        open={showAllSessions}
+        onOpenChange={setShowAllSessions}
+        onSessionView={handleViewSessionDetails}
+      />
+      
+      <AllNotificationsView
+        open={showAllNotifications}
+        onOpenChange={setShowAllNotifications}
+      />
+      
+      <FilterPanel
+        open={showFilterPanel}
+        onOpenChange={setShowFilterPanel}
+        onFiltersApply={handleFiltersApply}
+      />
     </div>
   );
 };

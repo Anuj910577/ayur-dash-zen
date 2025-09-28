@@ -50,7 +50,12 @@ const currentWeek = Array.from({ length: 7 }, (_, i) => {
   return date;
 });
 
-export function ScheduleView() {
+interface ScheduleViewProps {
+  onScheduleSession?: () => void;
+  onViewSession?: (session: any) => void;
+}
+
+export function ScheduleView({ onScheduleSession, onViewSession }: ScheduleViewProps) {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -59,7 +64,7 @@ export function ScheduleView() {
           <h1 className="text-2xl font-bold text-foreground">Schedule</h1>
           <p className="text-muted-foreground">Manage daily and weekly therapy sessions</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={onScheduleSession}>
           <Plus className="h-4 w-4 mr-2" />
           Schedule Session
         </Button>
@@ -180,7 +185,7 @@ export function ScheduleView() {
                   <span className={`status-badge status-${session.status}`}>
                     {session.status}
                   </span>
-                  <Button size="sm" variant="outline">
+                  <Button size="sm" variant="outline" onClick={() => onViewSession?.(session)}>
                     Start Session
                   </Button>
                 </div>

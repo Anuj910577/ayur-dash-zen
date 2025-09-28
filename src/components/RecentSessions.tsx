@@ -40,12 +40,17 @@ const sessions = [
   },
 ];
 
-export function RecentSessions() {
+interface RecentSessionsProps {
+  onViewAll?: () => void;
+  onViewSession?: (session: any) => void;
+}
+
+export function RecentSessions({ onViewAll, onViewSession }: RecentSessionsProps) {
   return (
     <div className="card-wellness">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Recent Sessions</h2>
-        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" onClick={onViewAll}>
           <span>View All</span>
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
@@ -55,7 +60,8 @@ export function RecentSessions() {
         {sessions.map((session) => (
           <div 
             key={session.id} 
-            className="flex items-start justify-between p-4 rounded-lg border border-border/50 hover:border-primary/20 transition-colors group"
+            className="flex items-start justify-between p-4 rounded-lg border border-border/50 hover:border-primary/20 transition-colors group cursor-pointer"
+            onClick={() => onViewSession?.(session)}
           >
             <div className="flex items-start gap-4 flex-1">
               <div className="p-2 bg-muted rounded-lg">
