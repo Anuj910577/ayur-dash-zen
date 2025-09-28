@@ -7,6 +7,7 @@ import { RecentSessions } from "@/components/RecentSessions";
 import { NotificationsPanel } from "@/components/NotificationsPanel";
 import { PatientManagement } from "@/components/PatientManagement";
 import { ScheduleView } from "@/components/ScheduleView";
+import ProgressTracking from "@/components/ProgressTracking";
 import { AddPatientModal } from "@/components/modals/AddPatientModal";
 import { ScheduleSessionModal } from "@/components/modals/ScheduleSessionModal";
 import { PatientProfileModal } from "@/components/modals/PatientProfileModal";
@@ -100,20 +101,7 @@ const Index = () => {
           </div>
         );
       case "progress":
-        return (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold text-foreground">Progress Tracking</h1>
-                <p className="text-muted-foreground">Monitor patient progress and therapy effectiveness</p>
-              </div>
-            </div>
-            <div className="card-wellness text-center py-12">
-              <p className="text-muted-foreground mb-4">Progress tracking features coming soon</p>
-              <p className="text-sm text-muted-foreground">Charts, graphs, and milestone tracking will be available here</p>
-            </div>
-          </div>
-        );
+        return <ProgressTracking />;
       default:
         return (
           <div className="space-y-8">
