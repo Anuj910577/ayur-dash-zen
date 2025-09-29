@@ -10,7 +10,7 @@ All colors MUST be HSL.
   :root {
     /* Ayurveda-inspired color palette - Brightened */
     --background: 42 15% 97%;
-    --foreground: 150 25% 15%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
     --card-foreground: 150 25% 15%;
@@ -19,9 +19,9 @@ All colors MUST be HSL.
     --popover-foreground: 150 25% 15%;
 
     /* Sacred Green - Primary Ayurvedic color - Brightened */
-    --primary: 150 70% 50%;
+    --primary: 100 93% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 150 50% 90%;
+    --primary-soft: 100 80% 50%;
 
     /* Warm Earth - Secondary colors - Brightened */
     --secondary: 35 35% 90%;
@@ -32,8 +32,8 @@ All colors MUST be HSL.
     --muted-foreground: 150 20% 50%;
 
     /* Gentle accent colors - Brightened */
-    --accent: 150 50% 90%;
-    --accent-foreground: 150 25% 15%;
+    --accent: 100 70% 60%;
+    --accent-foreground: 0 0% 0%;
 
     /* Alert colors - Brightened */
     --destructive: 0 70% 60%;
@@ -42,13 +42,13 @@ All colors MUST be HSL.
     --warning: 42 90% 70%;
     --warning-foreground: 42 35% 15%;
     
-    --success: 150 75% 55%;
+    --success: 100 93% 35%;
     --success-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 150 20% 88%;
-    --input: 150 20% 94%;
-    --ring: 150 70% 50%;
+    --border: 100 20% 88%;
+    --input: 100 20% 94%;
+    --ring: 100 93% 35%;
 
     --radius: 0.5rem;
 
@@ -69,9 +69,9 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
     
     /* Gradients - Updated for brighter primary */
-    --gradient-healing: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(150 60% 60%));
+    --gradient-healing: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(100 80% 50%));
     --gradient-earth: linear-gradient(135deg, hsl(35 35% 90%), hsl(42 25% 88%));
-    --gradient-wellness: linear-gradient(180deg, hsl(150 50% 95%), hsl(150 30% 94%));
+    --gradient-wellness: linear-gradient(180deg, hsl(100 70% 60%), hsl(100 50% 55%));
     
     /* Shadows - Enhanced for visibility */
     --shadow-card: 0 8px 24px hsl(150 25% 15% / 0.15);
@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --transition-gentle: all 0.2s ease-out;
 
     /* Chart-specific bright colors */
-    --chart-green: 150 70% 50%;
+    --chart-green: 100 93% 35%;
     --chart-accent: 330 70% 60%;
   }
 
@@ -97,7 +97,7 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 150 70% 50%;
+    --primary: 100 93% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -106,15 +106,18 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 150 50% 90%;
+    --accent: 100 70% 60%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 70% 60%;
     --destructive-foreground: 210 40% 98%;
 
+    --success: 100 93% 35%;
+    --success-foreground: 0 0% 100%;
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 150 70% 50%;
+    --ring: 100 93% 35%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -125,9 +128,9 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
     
     /* Gradients - Updated for brighter primary */
-    --gradient-healing: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(150 60% 60%));
+    --gradient-healing: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(100 80% 50%));
     --gradient-earth: linear-gradient(135deg, hsl(35 35% 90%), hsl(42 25% 88%));
-    --gradient-wellness: linear-gradient(180deg, hsl(150 50% 95%), hsl(150 30% 94%));
+    --gradient-wellness: linear-gradient(180deg, hsl(100 70% 60%), hsl(100 50% 55%));
     
     /* Shadows - Enhanced for visibility */
     --shadow-card: 0 8px 24px hsl(150 25% 15% / 0.15);
@@ -139,7 +142,7 @@ All colors MUST be HSL.
     --transition-gentle: all 0.2s ease-out;
 
     /* Chart-specific bright colors */
-    --chart-green: 150 70% 50%;
+    --chart-green: 100 93% 35%;
     --chart-accent: 330 70% 60%;
   }
 }
