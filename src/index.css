@@ -13,10 +13,10 @@ All colors MUST be HSL.
     --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 150 25% 15%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 25% 15%;
+    --popover-foreground: 0 0% 0%;
 
     /* Sacred Green - Primary Ayurvedic color - Brightened */
     --primary: 100 93% 35%;
@@ -25,11 +25,11 @@ All colors MUST be HSL.
 
     /* Warm Earth - Secondary colors - Brightened */
     --secondary: 35 35% 90%;
-    --secondary-foreground: 150 25% 15%;
+    --secondary-foreground: 0 0% 0%;
 
     /* Muted natural tones - Slightly brighter */
     --muted: 42 20% 94%;
-    --muted-foreground: 150 20% 50%;
+    --muted-foreground: 0 0% 0%;
 
     /* Gentle accent colors - Brightened */
     --accent: 100 70% 60%;
@@ -40,8 +40,8 @@ All colors MUST be HSL.
     --destructive-foreground: 0 0% 100%;
     
     --warning: 42 90% 70%;
-    --warning-foreground: 42 35% 15%;
-    
+    --warning-foreground: 0 0% 0%;
+
     --success: 100 93% 35%;
     --success-foreground: 0 0% 100%;
 
@@ -54,15 +54,14 @@ All colors MUST be HSL.
 
     --sidebar-background: 0 0% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 0 0% 0%;
 
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
 
     --sidebar-accent: 240 4.8% 95.9%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 0 0% 0%;
 
     --sidebar-border: 220 13% 91%;
 
@@ -89,28 +88,28 @@ All colors MUST be HSL.
 
   .dark {
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 0%;
 
     --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 100 93% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 0 0% 0%;
 
     --accent: 100 70% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 70% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 0%;
 
     --success: 100 93% 35%;
     --success-foreground: 0 0% 100%;
@@ -119,11 +118,11 @@ All colors MUST be HSL.
     --input: 217.2 32.6% 17.5%;
     --ring: 100 93% 35%;
     --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-foreground: 0 0% 0%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
     
